@@ -1,7 +1,7 @@
 import React from "react";
 
 const ErrorElement = () => {
-  return <div>ErrorElement</div>;
+  return <div>Error Element</div>;
 };
 
 export default ErrorElement;
