@@ -1,20 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const watchlistSlice = createSlice({
-  name: "watchlistSlice",
+  name: "watchlist",
   initialState: [],
   reducers: {
-    handleAddCoins(state, actions) {
+    handleAddCoins(state, action) {
       const newState = [...state];
-      newState.push(actions.payload);
-
+      newState.push(action.payload);
       return newState;
     },
-    handleRemoveCoins(state, actions) {
-      console.log(state, actions);
+    handleRemoveCoin(state,  actions){
+      let newState = [...state];
+      newState = newState.filter((items) => items.id !== actions.payload.id);
+return newState;
+      }
+    }
     },
-  },
-});
+);
 
-export const { handleAddCoins, handleRemoveCoins } = watchlistSlice.actions;
+export const { handleAddCoins, handleRemoveCoin } = watchlistSlice.actions;
 export default watchlistSlice.reducer;
